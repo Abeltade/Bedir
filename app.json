@@ -1,0 +1,25 @@
+{
+  "expo": {
+    "name": "Bedir",
+    "slug": "Bedir",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/loan.png",
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "android": {
+      "package": "com.finbit.Bedir",
+      "versionCode": 1,
+      "permissions": []
+    },
+    "extra": {
+      "eas": {
+        "projectId": "e1b242cf-7269-42e1-94f5-3f449ca7efa9"
+      }
+    }
+  }
+}
