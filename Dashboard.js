@@ -1,7 +1,13 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const Dashboard = () => {
+	
+	const navigation = useNavigation();
+   const toInvestmentList = () => {
+	 navigation.navigate('InvestmentList');
+    }
   return (
     <View style={styles.container}>
       {/* Header */}
@@ -20,15 +26,15 @@ const Dashboard = () => {
 
       {/* Summary Section */}
       <View style={styles.summarySection}>
-        <View style={styles.summaryItem}>
+        <View style={[styles.summaryItem, styles.summaryItemLeft]}>
           <Text style={styles.summaryValue}>$50,000</Text>
-          <Text style={styles.summaryLabel}>Total Investment</Text>
+          <Text style={styles.summaryLabel}>Investment</Text>
         </View>
-        <View style={styles.summaryItem}>
+        <View style={[styles.summaryItem, styles.summaryItemCenter]}>
           <Text style={styles.summaryValue}>15</Text>
           <Text style={styles.summaryLabel}>Active Loans</Text>
         </View>
-        <View style={styles.summaryItem}>
+        <View style={[styles.summaryItem, styles.summaryItemRight]}>
           <Text style={styles.summaryValue}>$5,000</Text>
           <Text style={styles.summaryLabel}>Total Earnings</Text>
         </View>
@@ -36,7 +42,7 @@ const Dashboard = () => {
 
       {/* Actionable Items Section */}
       <View style={styles.actionsSection}>
-        <TouchableOpacity style={styles.actionItem}>
+        <TouchableOpacity style={styles.actionItem} onPress={toInvestmentList}>
           <Image style={styles.actionIcon} source={require('./assets/earning.png')} />
           <Text style={styles.actionLabel}>Investment Opportunities</Text>
         </TouchableOpacity>
@@ -45,11 +51,11 @@ const Dashboard = () => {
           <Text style={styles.actionLabel}>Loan Repayment</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.actionItem}>
-          <Image style={styles.actionIcon} source={require('./assets/fund.png')} />
+          <Image style={styles.actionIcon} source={require('./assets/time.png')} />
           <Text style={styles.actionLabel}>Investment History</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.actionItem}>
-          <Image style={styles.actionIcon} source={require('./assets/time.png')} />
+          <Image style={styles.actionIcon} source={require('./assets/fund.png')} />
           <Text style={styles.actionLabel}>Account Settings</Text>
         </TouchableOpacity>
       </View>
@@ -67,7 +73,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-	marginTop: 30,
+    marginTop: 30,
   },
   profilePic: {
     width: 50,
@@ -88,19 +94,33 @@ const styles = StyleSheet.create({
   },
   summarySection: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     marginTop: 50,
+    backgroundColor: '#007BFF', // Blue background
+    padding: 40,
+    borderRadius: 10,
   },
   summaryItem: {
     alignItems: 'center',
+    width: '30%', // Each item takes up 30% of the container's width
+  },
+  summaryItemLeft: {
+    alignSelf: 'flex-start',
+  },
+  summaryItemCenter: {
+    alignSelf: 'center',
+  },
+  summaryItemRight: {
+    alignSelf: 'flex-end',
   },
   summaryValue: {
     fontSize: 24,
     fontWeight: 'bold',
+    color: '#fff', // White text color for better contrast
   },
   summaryLabel: {
     fontSize: 14,
-    color: '#666',
+    color: '#D3D3D3', // Light gray text color
   },
   actionsSection: {
     marginTop: 50,

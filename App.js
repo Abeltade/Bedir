@@ -5,7 +5,12 @@ import SplashScreenComponent from './SplashScreenComponent';
 import LoginScreen from './LoginScreen';
 import Dashboard from './Dashboard';
 import SignUp from './SignUp';
-
+import InvestmentList from './InvestmentList';
+import InvestmentDetail from './InvestmentDetail';
+import BorrowerProfile from './BorrowerProfile';
+import LoanDescription from './LoanDescription';
+import PDFViewer from './PDFViewer';
+import PDFScreen from './PDFScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -40,6 +45,13 @@ const App = () => {
             </Stack.Screen>
             <Stack.Screen name="Dashboard" component={Dashboard} />
 			<Stack.Screen name="SignUp" component={SignUp} />
+			<Stack.Screen name="InvestmentDetail" component={InvestmentDetail} />
+			<Stack.Screen name="InvestmentList" component={InvestmentList} />
+			<Stack.Screen name="BorrowerProfile" component={BorrowerProfile} />
+			<Stack.Screen name="LoanDescription" component={LoanDescription} />
+			<Stack.Screen name="PDFViewer" component={PDFViewer} />
+			<Stack.Screen name="PDFScreen" component={PDFScreen} />
+
           </>
         ) : (
           <Stack.Screen name="Splash">
